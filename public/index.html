@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Your Portfolio</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <style>
+    .quick-access-section {
+      width: 100%;
+      max-width: 1400px;
+      margin: 40px auto 0 auto;
+      padding: 0 24px;
+    }
+    .quick-access-heading {
+      text-align: center;
+      font-size: 2.3rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 28px;
+      color: #1a2233;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+    .quick-access-row {
+      display: flex;
+      justify-content: center;
+      gap: 36px;
+      flex-wrap: wrap;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .quick-card {
+      flex: 1 1 260px;
+      min-width: 260px;
+      max-width: 320px;
+      background: linear-gradient(135deg, #f8fafc 60%, #e3e9f7 100%);
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(30,40,90,0.10);
+      padding: 20px 16px 14px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.25s cubic-bezier(.4,2,.6,1), box-shadow 0.25s;
+      opacity: 0;
+      transform: scale(0.95) translateY(40px);
+      animation: popFadeIn 0.8s forwards;
+      animation-timing-function: cubic-bezier(.4,2,.6,1);
+    }
+    .quick-card:nth-child(1) { animation-delay: 0.1s; }
+    .quick-card:nth-child(2) { animation-delay: 0.2s; }
+    .quick-card:nth-child(3) { animation-delay: 0.3s; }
+    .quick-card:nth-child(4) { animation-delay: 0.4s; }
+    .quick-card:nth-child(5) { animation-delay: 0.5s; }
+    .quick-card:hover {
+      transform: scale(1.04) translateY(-8px) rotateZ(-1deg);
+      box-shadow: 0 8px 32px rgba(30,40,90,0.18);
+      background: linear-gradient(135deg, #f0f4ff 60%, #dbeafe 100%);
+    }
+    @keyframes popFadeIn {
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+    .quick-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+      margin-bottom: 14px;
+      background: #e6eaf3;
+    }
+    .quick-label {
+      text-align: center;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #25304a;
+      margin-top: 2px;
+      letter-spacing: 0.5px;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .kuredu-section {
+      padding: 60px 24px;
+      background: linear-gradient(135deg, #f8fafc 0%, #e3e9f7 100%);
+    }
+    .kuredu-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .kuredu-content h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #1a2233;
+      margin-bottom: 40px;
+      font-weight: 700;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+    .kuredu-card {
+      display: flex;
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(30,40,90,0.12);
+      transition: transform 0.3s cubic-bezier(.4,2,.6,1);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .kuredu-card:hover {
+      transform: translateY(-8px) scale(1.01);
+    }
+    .kuredu-image {
+      flex: 1;
+      min-width: 300px;
+      position: relative;
+      overflow: hidden;
+    }
+    .kuredu-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .kuredu-card:hover .kuredu-image img {
+      transform: scale(1.05);
+    }
+    .kuredu-text {
+      flex: 1;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .kuredu-text h3 {
+      font-size: 1.8rem;
+      color: #25304a;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+    .kuredu-text p {
+      font-size: 1.1rem;
+      color: #4a5568;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .kuredu-link {
+      display: inline-block;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: transform 0.2s, box-shadow 0.2s;
+      align-self: flex-start;
+    }
+    .kuredu-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(37,99,235,0.2);
+    }
+    @media (max-width: 768px) {
+      .kuredu-card {
+        flex-direction: column;
+      }
+      .kuredu-image {
+        min-height: 300px;
+      }
+      .kuredu-text {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="header-container">
+    <nav class="main-nav">
+        <div class="header-content">
+            <h1 class="name">Abdul Rahman Gasim</h1>
+            <p class="title">Food & Beverage Specialist | 3D Designer | Web Design | Reopening & Pre-Opening Specialist</p>
+        </div>
+        <ul>
+          <li><a href="index.html" class="active"><i class="fas fa-home"></i>Home</a></li>
+          <li><a href="skills.html" ><i class="fas fa-home"></i>Skills</a></li>
+          <li><a href="projects.html"><i class="fas fa-project-diagram"></i>Projects</a></li>
+          <li><a href="achievements.html"><i class="fas fa-trophy"></i>Achievements</a></li>
+          <li><a href="cv.html"><i class="fas fa-file-alt"></i>CV</a></li>
+          <li><a href="webapps.html"><i class="fas fa-mobile-alt"></i>Owned Apps</a></li>
+      </ul>
+    </nav>
+</header>
+ 
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <img src="Images/Rettey (6).jpg" alt="Your Name" class="profile-pic">
+      <h1>Hi, I'm <span>Rettey</span></h1>
+      <h2>Food & Beverage Manager | Hospitality Professional | Pre-Opening & Reopening Specialist</h2>
+      <p>Experienced Food & Beverage Manager with 20+ years in luxury resorts, specializing in pre-opening, reopening, and operations. Led successful F&B launches at Amari Raaya Maldives, Raaya by Atmosphere, Innahura Maldives, and Sun Siyam Olhuveli Dream Island. Expert in multi-outlet management, guest experience, and revenue growth. Certified in HACCP, Food Safety, and Luxury Hospitality Standards. Also a skilled web developer, graphic designer, and 3D artist.</p>
+      <a href="projects.html" class="btn">View My Work</a>
+    </div>
+  </section>
+
+  <!-- Kuredu Celebrities Section -->
+  <section class="kuredu-section">
+    <div class="kuredu-content">
+      <h2>Featured on Kuredu</h2>
+      <div class="kuredu-card">
+        <div class="kuredu-image">
+          <img src="Images/Rettey (6).jpg" alt="Rettey at Kuredu">
+        </div>
+        <div class="kuredu-text">
+          <h3>Kuredu Celebrities</h3>
+          <p>Featured on Kuredu's official website for exceptional contributions to hospitality excellence.</p>
+          <a href="https://www.kuredu.com/kuredu-celebrities-rettey/" target="_blank" class="kuredu-link">Read More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Access Section -->
+  <section class="quick-access-section">
+    <h2 class="quick-access-heading">Featured Projects</h2>
+    <div class="quick-access-row">
+      <div class="quick-card">
+        <a href="3d-architecture.html">
+          <img src="Images/website images/3D architecture.jpg" alt="3D Architecture">
+          <div class="quick-label">3D Architecture</div>
+        </a>
+      </div>
+      <div class="quick-card">
+        <a href="training.html">
+          <img src="Images/website images/Training.jpg" alt="Training">
+          <div class="quick-label">Training</div>
+        </a>
+      </div>
+      <div class="quick-card">
+        <a href="photography.html">
+          <img src="Images/website images/Photography.jpg" alt="Photography">
+          <div class="quick-label">Photography</div>
+        </a>
+      </div>
+      <div class="quick-card">
+        <a href="videography.html">
+          <img src="Images/website images/Videography.png" alt="Videography">
+          <div class="quick-label">Videography</div>
+        </a>
+      </div>
+      <div class="quick-card">
+        <a href="content-creator.html">
+          <img src="Images/website images/Content Creation.jpg" alt="Content Creation">
+          <div class="quick-label">Content Creation</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Graphic Design Section -->
+  <section class="graphic-design">
+    <h2>Graphic Design Works</h2>
+    <div class="design-grid">
+      <div class="design-card">
+        <img src="Images/website images/Logo making.jpg" alt="Design 1">
+        <p>Logo Design</p>
+        <a href="graphic-design.html#logo">View Logo Design</a>
+      </div>
+      <div class="design-card">
+        <img src="Images/website images/Graphic Design.jpg" alt="Design 2">
+        <p>Flyers</p>
+        <a href="graphic-design.html">View Branding</a>
+      </div>
+      <div class="design-card">
+        <img src="Images/Blender Image (3).jpg" alt="Design 3">
+        <p>3D Design</p>
+        <a href="graphic-design.html#3d-design">View 3D Design</a>
+      </div>
+      <div class="design-card">
+        <a href="content-creator.html" style="text-decoration: none; color: inherit;">
+          <img src="Images/brochures (2).jpg" alt="Content Creation">
+          <p>Content Creation</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3D Drawings Section -->
+  <section class="drawings">
+    <h2>3D Drawings</h2>
+    <div class="drawings-grid">
+      <div class="drawing-card">
+        <img src="Images/Blender Image (13).jpg" alt="3D Drawing 1">
+        <p>Architectural Design</p>
+        <a href="3d-architecture.html#architectural-design">View Architectural Design</a>
+      </div>
+      <div class="drawing-card">
+        <img src="Images/Blender Image (13).jpg" alt="3D Drawing 2">
+        <p>Interior Design</p>
+        <a href="3d-architecture.html#interior-design">View Interior Design</a>
+      </div>
+      <div class="drawing-card">
+        <img src="Images/sketch image (14).jpg" alt="3D Drawing 3">
+        <p>Product Design</p>
+        <a href="3d-architecture.html#product-design">View Product Design</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Websites Section -->
+  <section class="websites">
+    <h2>Photography Projects</h2>
+    <div class="websites-grid">
+      <div class="website-card">
+        <img src="Images/Landscape (60).jpg" alt="Website 1">
+        <p>Dinning</p>
+        <a href="photography.html#dinning">View Dinning</a>
+      </div>
+      <div class="website-card">
+        <img src="Images/Landscape (136).jpg" alt="Website 2">
+        <p>Nature</p>
+        <a href="photography.html#nature">View Nature</a>
+      </div>
+      <div class="website-card">
+        <img src="Images/Landscape (101).jpg" alt="Website 3">
+        <p>Promotions</p>
+        <a href="photography.html#promotions">View Promotions</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Web App Design Section -->
+  <section class="web-apps">
+    <h2>Web App Solutions</h2>
+    <div class="web-apps-grid">
+      <div class="web-app-card">
+        <img src="Images/FRESH TRACK PRO.jpg" alt="FreshTrack Pro">
+        <p>FreshTrack Pro</p>
+        <a href="webapps.html#fresh-track-pro">View FreshTrack Pro</a>
+      </div>
+      <div class="web-app-card">
+        <img src="Images/logo (5).jpg" alt="FurniCraft Pro">
+        <p>FurniCraft Pro</p>
+        <a href="webapps.html#furnicraft-pro">View FurniCraft Pro</a>
+      </div>
+      <div class="web-app-card">
+        <img src="Images/logo (7).png" alt="Pantry Recipe Pro">
+        <p>Pantry Recipe Pro</p>
+        <a href="webapps.html#pantry-recipe-pro">View Pantry Recipe Pro</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section class="certifications">
+    <h2>Certifications</h2>
+    <div class="certifications-carousel">
+      <div class="certification-card">
+        <img src="Images/port certi (10).jpg" alt="Certification 1">
+        <p>Wine Training</p>
+        <a href="achievements.html#wine-training">View Wine Training</a>
+      </div>
+      <div class="certification-card">
+        <img src="Images/port certi (13).jpg" alt="Certification 2">
+        <p>Food Safety</p>
+        <a href="achievements.html#food-safety">View Food Safety</a>
+      </div>
+      <div class="certification-card">
+        <img src="Images/port certi (12).jpg" alt="Certification 3">
+        <p>Sports</p>
+        <a href="achievements.html#sports">View Sports</a>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <footer id="footer-container">
+    <div class="footer-content">
+        <!-- Left Section -->
+        <div class="footer-section">
+            <h3>Contact Information</h3>
+            <div class="contact-info">
+              <p>
+                  <i class="fas fa-phone"></i>
+                  <span>+960 9795529</span>
+              </p>
+              <p>
+                  <i class="fas fa-envelope"></i>
+                  <span>retey.ay@hotmail.com</span>
+              </p>
+              <p>
+                  <i class="fas fa-map-marker-alt"></i>
+                  <span>Lh. Hinnavaru, Maldives</span>
+              </p>
+          </div>
+        </div>
+
+        <!-- Middle Section -->
+        <div class="footer-section">
+          <h3>Connect With Me</h3>
+          <div class="social-links">
+              <a href="https://www.linkedin.com/in/abdul-rahman-gasim-54862182/" target="_blank">
+                  <i class="fab fa-linkedin"></i>
+                  <span>LinkedIn</span>
+              </a>
+              <a href="https://facebook.com/Abdulrahman" target="_blank">
+                  <i class="fab fa-facebook"></i>
+                  <span>Facebook</span>
+              </a>
+              <a href="https://instagram.com/retey1447" target="_blank">
+                  <i class="fab fa-instagram"></i>
+                  <span>Instagram</span>
+              </a>
+          </div>
+      </div>
+
+        <!-- Right Section -->
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul class="quick-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="achievements.html">Achievements</a></li>
+                <li><a href="cv.html">Curriculum Vitae</a></li>
+                <li><a href="skills.html">Skills</a></li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p class="copyright">&copy; 2024 Abdul Rahman Gasim. All rights reserved.</p>
+    </div>
+</footer>
+
+  
+  <script type="module" src="js/firebase-init.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
