@@ -1,54 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Load Header
-    fetch('../components/header.html')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.text();
-        })
-        .then(data => {
-            const headerContainer = document.getElementById('header-container');
-            if (headerContainer) {
-                headerContainer.innerHTML = data;
-                // Set active nav item
-                const currentPage = window.location.pathname.split('/').pop();
-                document.querySelectorAll('.main-nav a').forEach(link => {
-                    if (link.getAttribute('href').includes(currentPage)) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-        })
-        .catch(error => {
-            console.error('Error loading header:', error);
-            const headerContainer = document.getElementById('header-container');
-            if (headerContainer) {
-                headerContainer.innerHTML = '<p>Error loading header</p>';
-            }
-        });
-
-    // Load Footer
-    fetch('../components/footer.html')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.text();
-        })
-        .then(data => {
-            const footerContainer = document.getElementById('footer-container');
-            if (footerContainer) {
-                footerContainer.innerHTML = data;
-            }
-        })
-        .catch(error => {
-            console.error('Error loading footer:', error);
-            const footerContainer = document.getElementById('footer-container');
-            if (footerContainer) {
-                footerContainer.innerHTML = '<p>Error loading footer</p>';
-            }
-        });
+    // Set active nav item
+    const currentPage = window.location.pathname.split('/').pop();
+    document.querySelectorAll('.main-nav a').forEach(link => {
+        if (link.getAttribute('href').includes(currentPage)) {
+            link.classList.add('active');
+        }
+    });
 
     // Initialize skill levels if they exist
     const skillLevels = document.querySelectorAll('.skill-level');
